@@ -1,0 +1,12 @@
+<p>menu-opciones works!</p>
+<div class="row option-list">
+  <div class="col-sm-4" *ngFor="let opcion of listaOpciones">
+    <app-card-opcion
+      [titulo]="opcion.titulo"
+      [image]="opcion.image"
+      [ruta]="opcion.ruta"
+      (opcionSeleccionada)="opcionSeleccionada($event)"
+    >
+    </app-card-opcion>
+  </div>
+</div>

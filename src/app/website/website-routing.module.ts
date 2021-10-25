@@ -10,7 +10,7 @@ const routes: Routes = [
       {
         path: '',
         redirectTo: 'home',
-        pathMatch: 'full'
+        pathMatch: 'full',
       },
       {
         path: 'home',
@@ -22,8 +22,15 @@ const routes: Routes = [
         loadChildren: () =>
           import('./pages/login/login.module').then((m) => m.LoginModule),
       },
-    ]
-  }
+      {
+        path: 'opciones',
+        loadChildren: () =>
+          import('./pages/menu-opciones/menu-opciones.module').then(
+            (m) => m.MenuOpcionesModule
+          ),
+      },
+    ],
+  },
 ];
 
 @NgModule({
