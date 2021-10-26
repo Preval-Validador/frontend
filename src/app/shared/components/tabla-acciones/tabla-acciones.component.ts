@@ -1,5 +1,6 @@
 import { TablaInterface } from './../../../utils/interfaces/tabla.interface';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-tabla-acciones',
@@ -7,8 +8,34 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tabla-acciones.component.scss'],
 })
 export class TablaAccionesComponent implements OnInit {
-  data = [];
+
+  inputSwitch = new FormControl(false)
+
+  @Input()
+  data = [
+    {
+      campo: 'hola'
+    }
+  ];
+
+  @Input()
   cols: TablaInterface[] = [
+    {
+      header: 'cabecera',
+      field: 'campo'
+    },
+    {
+      header: 'cabecera',
+      field: 'campo'
+    },
+    {
+      header: 'cabecera',
+      field: 'campo'
+    },
+    {
+      header: 'cabecera',
+      field: 'campo'
+    },
     {
       header: 'cabecera',
       field: 'campo'

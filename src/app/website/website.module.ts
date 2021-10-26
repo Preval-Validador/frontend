@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { WebsiteRoutingModule } from './website-routing.module';
 import { LayoutComponent } from './components/layout/layout.component';
-import { NavComponent } from './components/nav/nav.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  declarations: [LayoutComponent, NavComponent],
-  imports: [CommonModule, WebsiteRoutingModule],
+  declarations: [LayoutComponent],
+  imports: [CommonModule, WebsiteRoutingModule, SharedModule],
 })
 export class WebsiteModule {}

@@ -1,42 +1,29 @@
-<!-- <p-table responsiveLayout="scroll" [value]="data">
-  <ng-template pTemplate="caption">
-      Scroll
-  </ng-template>
-  <ng-template pTemplate="header" let-columns>
-      <tr>
-          <th>Name </th>
-          <th>Price</th>
-          <th>Category</th>
-          <th>Quantity</th>
-          <th>Status</th>
-          <th>Reviews</th>
-      </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-product let-columns="columns">
-      <tr>
-          <td>{{product.name}}</td>
-          <td>{{product.price | currency:'USD'}}</td>
-          <td>{{product.category}}</td>
-          <td>{{product.quantity}}</td>
-          <td><span [class]="'product-badge status-' + (product.inventoryStatus ? product.inventoryStatus.toLowerCase() : '')">{{product.inventoryStatus}}</span></td>
-          <td><p-rating [ngModel]="product.rating" [readonly]="true" [cancel]="false"></p-rating></td>
-      </tr>
-  </ng-template>
-</p-table> -->
-
 <p-table [columns]="cols" [value]="data" responsiveLayout="scroll">
   <ng-template pTemplate="header" let-columns>
-      <tr>
-          <th *ngFor="let col of columns">
-              {{col.header}}
-          </th>
-      </tr>
+    <tr>
+      <th *ngFor="let col of columns" class="text-center">
+        {{ col.header }}
+      </th>
+    </tr>
   </ng-template>
   <ng-template pTemplate="body" let-rowData let-columns="columns">
-      <tr>
-          <td *ngFor="let col of columns">
-              {{rowData[col.field]}}
-          </td>
-      </tr>
+    <tr>
+      <td *ngFor="let col of columns">
+        {{ rowData[col.field] }}
+        <div *ngIf="col.header == 'Habilitado'" class="text-center">
+          <p-inputSwitch></p-inputSwitch>
+        </div>
+        <div *ngIf="col.header == 'Estado'" class="text-center">
+          <div class="row creado">
+              <span>Creado</span>
+          </div>
+        </div>
+        <div *ngIf="col.header == 'Acciones'" class="text-center">
+          <button class="btn btn-outline-success" *ngFor="let boton of col.acciones">
+            {{ boton.nombreBtn }}
+          </button>
+        </div>
+      </td>
+    </tr>
   </ng-template>
 </p-table>
