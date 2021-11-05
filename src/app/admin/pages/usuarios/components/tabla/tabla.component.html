@@ -1,0 +1,40 @@
+<p-table [columns]="cols" [value]="data" responsiveLayout="scroll">
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns" class="text-center">
+        {{ col.header }}
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr>
+      <td *ngFor="let col of columns">
+        {{ rowData[col.field] }}
+        <div *ngIf="col.header == 'Habilitado'" class="text-center">
+          <p-inputSwitch></p-inputSwitch>
+        </div>
+        <div *ngIf="col.header == 'Estado'" class="text-center">
+          <div class="row vigente">
+              <span>Vigente</span>
+          </div>
+        </div>
+        <div *ngIf="col.header == 'Acciones'" class="text-center">
+          <div class="row">
+            <div class="col-sm-12">
+              <button class="btn btn-outline-success">
+                Editar
+              </button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <button class="btn btn-outline-success">
+                Generar contraseña
+              </button>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

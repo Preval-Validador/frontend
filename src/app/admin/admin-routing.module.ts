@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/cooperativas/cooperativas.module').then(m => m.CooperativasModule)
   },
   {
+    path: 'usuarios',
+    loadChildren: () => import('./pages/usuarios/usuarios.module').then(m => m.UsuariosModule)
+  },
+  {
     path: 'cobros',
     loadChildren: () => import('./pages/cobros/cobros.module').then(m => m.CobrosModule)
   },

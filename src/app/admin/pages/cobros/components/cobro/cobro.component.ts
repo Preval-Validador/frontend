@@ -32,11 +32,6 @@ export class CobroComponent implements OnInit {
     {
       header: 'Acciones',
       field: 'id',
-      acciones: [
-        {
-          nombreBtn: 'Fechas'
-        }
-      ]
     }
   ]
   constructor() { }

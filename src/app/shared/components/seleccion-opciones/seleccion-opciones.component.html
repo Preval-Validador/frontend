@@ -1,0 +1,11 @@
+<div class="select-decoration">
+  <mat-form-field appearance="fill">
+    <mat-label>Favorite food</mat-label>
+    <mat-select>
+      <mat-option>None</mat-option>
+      <mat-option *ngFor="let food of opciones" [value]="food.id">
+        {{food.id}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

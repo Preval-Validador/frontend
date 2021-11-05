@@ -38,16 +38,16 @@
   }
 }
 
-.creado {
+.caducado {
   cursor: context-menu;
   text-align: center;
   color: aliceblue;
-  border: 0.15rem solid #2196f3;
+  border: 0.15rem solid #bc2a2a;
   border-radius: 2rem;
-  background-color: #2196f3;
+  background-color: #bc2a2a;
 }
 
-.pendiente {
+.por-caducar {
   cursor: context-menu;
   text-align: center;
   border: 0.15rem solid #fccf2f;
@@ -55,7 +55,7 @@
   background-color: #fccf2f;
 }
 
-.cobrado {
+.vigente {
   cursor: context-menu;
   text-align: center;
   color: aliceblue;
@@ -64,6 +64,3 @@
   background-color: #689f38;
 }
 
-.centra-item{
-  align-items: center;
-}

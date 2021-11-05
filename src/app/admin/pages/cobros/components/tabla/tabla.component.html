@@ -19,8 +19,8 @@
           </div>
         </div>
         <div *ngIf="col.header == 'Acciones'" class="text-center">
-          <button class="btn btn-outline-success" *ngFor="let boton of col.acciones">
-            {{ boton.nombreBtn }}
+          <button class="btn btn-outline-success" (click)="editarFecha()">
+            Editar
           </button>
         </div>
       </td>

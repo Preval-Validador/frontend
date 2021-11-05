@@ -1,15 +1,12 @@
-import { TablaInterface } from './../../../utils/interfaces/tabla.interface';
+import { TablaInterface } from './../../../../../utils/interfaces/tabla.interface';
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-tabla-acciones',
-  templateUrl: './tabla-acciones.component.html',
-  styleUrls: ['./tabla-acciones.component.scss'],
+  selector: 'app-tabla',
+  templateUrl: './tabla.component.html',
+  styleUrls: ['./tabla.component.scss']
 })
-export class TablaAccionesComponent implements OnInit {
-
-  inputSwitch = new FormControl(false)
+export class TablaComponent implements OnInit {
 
   @Input()
   data = [
@@ -41,7 +38,10 @@ export class TablaAccionesComponent implements OnInit {
       field: 'campo'
     }
   ];
-  constructor() {}
 
-  ngOnInit(): void {}
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
 }
