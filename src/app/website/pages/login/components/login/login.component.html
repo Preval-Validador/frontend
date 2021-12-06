@@ -1,2 +1,33 @@
 <p>login works!</p>
+<form [formGroup]="registerForm" (ngSubmit)="registar()">
+  <div class="mb-3">
+    <label for="inputUser" class="form-label">Email address</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="pepito69"
+      formControlName="username"
+    />
+  </div>
+  {{usernameField?.value}}
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label"
+      >Example textarea</label
+    >
+    <input
+      type="password"
+      class="form-control"
+      id="inputPassword"
+      placeholder="******"
+      formControlName="password"
+    />
+  </div>
+  <div *ngIf="passwordField?.touched && passwordField?.invalid">
+    <p>
+      {{passwordField?.errors | json}}
+    </p>
+  </div>
+  {{passwordField?.value}}
+</form>
 <button (click)="onMenuOpciones()">Ir a opciones</button>
