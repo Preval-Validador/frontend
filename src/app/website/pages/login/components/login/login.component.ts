@@ -14,9 +14,18 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   errors_field_username: any = {
-    required: 'es requerdio el campo username',
+    required: 'Username is required',
+    minlength: "Debe tener un minimo de 5 caracteres",
+    maxlength: "Debe tener un maximo de 16 caracteres"
   };
-  msgErrorsUsername: any[] = [];
+
+  errors_field_password: any = {
+    required: 'Password is required',
+    minlength: "Debe tener un minimo de 8 caracteres",
+    maxlength: "Debe tener un maximo de 16 caracteres"
+  };
+  msgErrorsUsername: string[] = [];
+  msgErrorsPassword: string[] = [];
   //@ts-ignore
   registerForm: FormGroup;
 
@@ -48,14 +57,15 @@ export class LoginComponent implements OnInit {
         ],
       ],
     });
-    this.listenUsernameField();
+    this.listenerUsernameField();
+    this.listenerPasswordField();
   }
 
   get usernameField() {
     return this.registerForm.get('username');
   }
 
-  listenUsernameField() {
+  listenerUsernameField() {
     this.usernameField?.valueChanges.subscribe(() => {
       this.errorsMsgUsernameField(this.usernameField);
     });
@@ -74,6 +84,23 @@ export class LoginComponent implements OnInit {
 
   get passwordField() {
     return this.registerForm.get('password');
+  }
+
+  listenerPasswordField() {
+    this.passwordField?.valueChanges.subscribe(() => {
+      this.errorsMsgPasswordField(this.passwordField);
+    });
+  }
+
+  errorsMsgPasswordField(field: AbstractControl | null) {
+    this.msgErrorsPassword = [];
+    if (field) {
+      if ((field.touched || field.dirty) && field.errors) {
+        this.msgErrorsPassword = Object.keys(field.errors).map(
+          (err: string) => this.errors_field_password[err]
+        );
+      }
+    }
   }
 
   onMenuOpciones() {

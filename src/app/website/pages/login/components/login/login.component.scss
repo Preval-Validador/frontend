@@ -1,0 +1,11 @@
+input {
+  &.input-border-error {
+    border-color: #ff4444;
+    box-shadow: 0 0 0 0.2rem rgba(255, 68, 68, 0.25);
+  }
+
+  &.input-border-exito {
+    border-color: #00c851;
+    box-shadow: 0 0 0 0.2rem rgba(0, 200, 81, 0.25);
+  }
+}

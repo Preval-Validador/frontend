@@ -8,9 +8,15 @@
       id="exampleFormControlInput1"
       placeholder="pepito69"
       formControlName="username"
+      [class.input-border-error]="usernameField?.touched && usernameField?.invalid"
+      [class.input-border-exito]="usernameField?.valid"
     />
   </div>
-  {{usernameField?.value}}
+  <div *ngFor="let error of msgErrorsUsername">
+    <span>
+      {{error}}
+    </span>
+  </div>
   <div class="mb-3">
     <label for="exampleFormControlTextarea1" class="form-label"
       >Example textarea</label
@@ -21,13 +27,14 @@
       id="inputPassword"
       placeholder="******"
       formControlName="password"
+      [class.input-border-error]="passwordField?.touched && passwordField?.invalid"
+      [class.input-border-exito]="passwordField?.valid"
     />
   </div>
-  <div *ngIf="passwordField?.touched && passwordField?.invalid">
-    <p>
-      {{passwordField?.errors | json}}
-    </p>
+  <div *ngFor="let error1 of msgErrorsPassword">
+    <span>
+      {{error1}}
+    </span>
   </div>
-  {{passwordField?.value}}
 </form>
 <button (click)="onMenuOpciones()">Ir a opciones</button>
